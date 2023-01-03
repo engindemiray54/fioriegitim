@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZFIORI_EGITIM_SRV" xml:lang="tr" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="EUrunler" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Atwrt"/>
+                </Key>
+                <Property Name="Atwrt" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Krkt.değeri" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Zkas" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Kassbohrer web sayfa" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Ztls" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Talson web sayfası" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Ztir" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Tırsan web sayfası" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityContainer Name="ZFIORI_EGITIM_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="EUrunlerSet" EntityType="ZFIORI_EGITIM_SRV.EUrunler" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link rel="self" href="https://trfiod.tirsan.com:44300/sap/opu/odata/sap/ZFIORI_EGITIM_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://trfiod.tirsan.com:44300/sap/opu/odata/sap/ZFIORI_EGITIM_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

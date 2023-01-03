@@ -1,0 +1,53 @@
+<mvc:View controllerName="tirsan.fioriegitim.controller.NewRecord" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.f.semantic">
+    <Page showHeader="false" title="{i18n>worklistTitle}" showNavButton="false">
+        <content>
+            <f:SimpleForm
+                id="SimpleFormDisplay354"
+                editable="false"
+                layout="ResponsiveGridLayout"
+                title="Address"
+                labelSpanXL="3"
+                labelSpanL="3"
+                labelSpanM="3"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="4"
+                emptySpanL="4"
+                emptySpanM="4"
+                emptySpanS="0"
+                columnsXL="1"
+                columnsL="1"
+                columnsM="1"
+                singleContainerFullSize="false"
+            >
+                <f:content>
+                    <Label text="{i18n>Urunler}" />
+                    <ComboBox change=".onChange" items="{
+                    path: '/EUrunlerSet',
+                    sorter: {
+                    path: 'Atwrt',
+                    descending: false
+}
+}">
+                        <core:Item key="{Atwrt}" text="{Atwrt}" />
+                    </ComboBox>
+                    <Label text="{i18n>Miktar}" />
+                    <Input />
+                    <Label text="{i18n>Silme}" />
+                    <Select forceSelection="false">
+                        <core:Item key="01" text="Evet" />
+                        <core:Item key="02" text="Hayır" />
+                    </Select>
+                    <Label text="{i18n>Tarih}" />
+                    <DatePicker />
+                </f:content>
+            </f:SimpleForm>
+        </content>
+        <footer>
+            <OverflowToolbar id="otbFooter">
+                <ToolbarSpacer />
+                <Button text="{i18n>Save}" press="onSave" type="Accept" />
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>

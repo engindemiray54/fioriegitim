@@ -1,0 +1,73 @@
+<mvc:View controllerName="tirsan.fioriegitim.controller.Worklist" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.f.semantic">
+    <Page showHeader="false" title="{i18n>worklistTitle}" showNavButton="false">
+        <content>
+            <VBox>
+                <Select forceSelection="false" change=".onChange" items="{
+path: '/EUrunlerSet',
+sorter: {
+path: 'Atwrt',
+descending: false
+}
+}">
+                    <core:Item key="{Atwrt}" text="{Atwrt}" />
+                </Select>
+                <Table
+                    id="table"
+                    width="auto"
+                    items="{
+path: '/FiyatSet',
+sorter: {
+path: 'Matnr',
+descending: false
+}
+}"
+                    noDataText="{worklistView>/tableNoDataText}"
+                    busyIndicatorDelay="{worklistView>/tableBusyDelay}"
+                    growing="true"
+                    growingScrollToLoad="true"
+                    growingThreshold="30"
+                    updateFinished=".onUpdateFinished"
+                >
+                    <headerToolbar>
+                        <OverflowToolbar>
+                            <Title id="tableHeader" text="{worklistView>/worklistTableTitle}" level="H3" />
+                            <ToolbarSpacer />
+                            <SearchField id="searchField" tooltip="{i18n>worklistSearchTooltip}" search=".onSearch">
+                                <layoutData>
+                                    <OverflowToolbarLayoutData maxWidth="200px" priority="NeverOverflow" />
+                                </layoutData>
+                            </SearchField>
+                        </OverflowToolbar>
+                    </headerToolbar>
+
+                    <columns>
+                        <Column id="nameColumn">
+                            <Text text="{i18n>Malzeme}" id="nameColumnTitle" />
+                        </Column>
+                        <Column>
+                            <Text text="{i18n>Adet}" />
+                        </Column>
+                        <Column>
+                            <Text text="{i18n>Fiyat}" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem type="Navigation" press=".onPress">
+                            <cells>
+                                <ObjectIdentifier title="{Matnr}" />
+                                <Text text="{ path: 'Kpein', formatter: '.formatter.formatMein'}" />
+                                <NumericContent value="{Kbetr}" scale="{Konwa}" valueColor="Good" press="press" truncateValueTo="4" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </VBox>
+        </content>
+        <footer>
+            <OverflowToolbar id="otbFooter">
+                <ToolbarSpacer />
+                <Button text="{i18n>newRecord}" press="onNavRecord" />
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>
